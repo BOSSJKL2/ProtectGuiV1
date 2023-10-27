@@ -99,7 +99,7 @@ SubmitButton.MouseButton1Click:Connect(function()
     if KeySystem == "BJGUI_4866PAID" then   
 screenGui:Destroy()
 
-loadstring(game:HttpGet(('https://github.com/BOSSJKL2/UPDBOSJKLSO/blob/main/UPDBOSJKLSORANKS'),true))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS'),true))()
   
   end
 end)

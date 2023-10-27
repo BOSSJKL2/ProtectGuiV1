@@ -1,0 +1,57 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+
+local Window = Rayfield:CreateWindow({
+   Name = "Global Script",
+   LoadingTitle = "Interface Loading...",
+   LoadingSubtitle = "By JKLO",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "JKLO Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "MujtnJuAnh", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Roblox Script Paradise",
+      Subtitle = "Key System",
+      Note = "Key (PAID TO GET KEY!)",
+      FileName = "JKLO - Key",
+      SaveKey = false,
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = "BJGUI_4866"
+   }
+})
+
+
+Rayfield:Notify({
+   Title = "Script From rspofficial.pro",
+   Content = "Thank you for using our script!",
+   Duration = 6.5,
+   Image = 13784335227,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "yw daddy!",
+         Callback = function()
+         print("The user called me daddy!")
+      end
+   },
+},
+})
+
+local Tab = Window:CreateTab("Main", 4483362458)
+local Button = Tab:CreateButton({
+   Name = "Global Script - 1",
+   Callback = function()
+      loadstring(game:HttpGet(('https://github.com/BOSSJKL2/UPDBOSJKLSO/blob/main/UPDBOSJKLSORANKS'),true))()
+   end,
+})
+
+local Tab2 = Window:CreateTab("Credits", 4483362458)
+local Paragraph = Tab2:CreateParagraph({Title = "Youtube Channel", Content = "https://youtube.com/@BossJKLO"})
+local Paragraph = Tab2:CreateParagraph({Title = "Website", Content = "https://bit ly/BJGUI"})
+local Paragraph = Tab2:CreateParagraph({Title = "Discord Server", Content = "https://discord.com/invite/MujtnJuAnh"})

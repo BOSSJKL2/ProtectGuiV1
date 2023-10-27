@@ -1,94 +1,109 @@
---[[KEY SYSTEM FOR THE MAIN SCRIPT BY DKAZERBR]]--
+-- Made BY Mr.Alegator
 
-_G.Key = "BJGUI_4866PAID"; --Your key for the script.
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
---[[SCRIPT SETTINGS BY ENHANCEDDEVELOPMENT (THE GUY WHO MADE THE LEVEL CHOOSER & HARDCORE DISABLER), GOAT (THE GUY WHO MADE 1 SHOT KILL), & ! (THE GUY WHO MADE NAMESPOOFER)]]--
---[[Juul]]--
-_G.Level = 0; --The dungeon level you want to enter. Set to 0 to make it choose the optimal dungeon.
-_G.NoHardcore = true; --Do you want to disable hardcore mode?
-_G.InstaKill = false; --Mobs not Bosses (Buggy - Gets Stuck Sometimes)
-_G.NameSpoofer = false; --Hide your name to safely take screenshots?
-_G.Name = "NameHere" --Change your name for spoofer
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0.5, -100, 0.5, -50)
+frame.BackgroundColor3 = Color3.new(1, 1, 1)
+frame.Parent = screenGui
 
-local OriginalEvent = game:GetService("ReplicatedStorage"):WaitForChild("remotes"):WaitForChild("createLobby").InvokeServer;
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 20)
+title.Position = UDim2.new(0, 0, 0, -20)
+title.Text = "KeySystem"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.BackgroundColor3 = Color3.new(0, 0, 0)
+title.Parent = frame
 
-local MetaMethods = getrawmetatable(game);
-local IndexBackup = MetaMethods.__index;
-local NamecallBackup = MetaMethods.__namecall;
-setreadonly(MetaMethods, false);
+local dragging
+local dragInput
+local dragStart
+local startPos
 
-MetaMethods.__index = newcclosure(function(Self, Key)
-	if (checkcaller()) then
-		if ((Key == "Value") and (Self:IsA("IntValue") and (Self.Name == "Level"))) then
-			if (_G.Level > 0) then
-				return _G.Level;
-			end;
-		elseif ((Key == "InvokeServer") and (Self.Name == "createLobby")) then
-			return newcclosure(function(Self, ParameterOne, ParameterTwo, ParameterThree, ParameterFour, ...)
-				if ((type(ParameterOne) ~= "Userdata") and (type(Self) == "userdata")) then
-					return OriginalEvent(Self, ParameterOne, ParameterTwo, ((_G.NoHardcore and false) or ParameterThree), ParameterFour, ...);
-				else
-					return OriginalEvent(ParameterOne, ParameterTwo, ((_G.NoHardcore and false) or ParameterThree), ParameterFour, ...);
-				end;
-			end);
-		end;
-	end;
-	return IndexBackup(Self, Key);
-end);
+local function update(input)
+    local delta = input.Position - dragStart
+    frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
 
-MetaMethods.__namecall = newcclosure(function(Self, ...)
-	local Arguments = {...};
-	if (checkcaller()) then
-		for Key, Parameter in next, Arguments do
-			if (Parameter == "Level") then
-				if (_G.Level > 0) then
-					return _G.Level;
-				end;
-			elseif ((Parameter == "InvokeServer") and (Self.Name == "createLobby")) then
-				if (_G.NoHardcore) then
-					Arguments[Key - 2] = false;
-				end;
-			end;
-		end;
-	end;
-	return NamecallBackup(Self, unpack(Arguments));
-end);
+title.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
 
-setreadonly(MetaMethods, true);
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
 
-if (_G.NameSpoofer) then
-	local CoreGui = game:GetService("CoreGui");
-	local LocalPlayer = game:GetService("Players").LocalPlayer;
-	coroutine.wrap(function()
-		while true do
-			pcall(function()
-				CoreGui.RobloxGui.TopBarContainer.NameHealthContainer.Username.Text = (_G.Name);
-				LocalPlayer.PlayerGui.playerStatus.Frame.playerName.Text = (_G.Name);
-				LocalPlayer.Character.playerNameplate.Frame.name.Text = (_G.Name);
-			end);
-			wait(1 / 30);
-		end;
-	end)();
-end;
+title.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
 
-if (_G.InstaKill) then
-	local PlayersService = game:GetService("Players");
-	local Player = PlayersService.LocalPlayer;
-	coroutine.wrap(function()
-		while true do
-			pcall(function()
-				local mypos = Player.Character.HumanoidRootPart.CFrame.p;
-				for index, value in next, workspace.dungeon:GetDescendants() do
-					if (value:FindFirstChildOfClass("Humanoid") and (value ~= Player.Character) and (not PlayersService:GetPlayerFromCharacter(value))) then
-						if ((value.HumanoidRootPart.CFrame.p - mypos).Magnitude < 20) then
-							value.Humanoid.Health = 0;
-						end;
-					end;
-				end;
-			end);
-			wait(0.15);
-		end;
-	end)();
-end;
+title.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = false
+        dragInput = nil
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+local KeySystem = Instance.new("TextBox")
+KeySystem.Size = UDim2.new(1, 0, 0.5, 0)
+KeySystem.Position = UDim2.new(0, 0, 0, 0)
+KeySystem.Text = "Enter the Key"
+KeySystem.TextColor3 = Color3.new(0, 0, 0)
+KeySystem.BackgroundTransparency = 0.5
+KeySystem.BackgroundColor3 = Color3.new(1, 1, 1)
+KeySystem.TextWrapped = true
+KeySystem.Parent = frame
+
+local SubmitButton = Instance.new("TextButton")
+SubmitButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+SubmitButton.Position = UDim2.new(0, 0, 0.5, 0)
+SubmitButton.Text = "Submit"
+SubmitButton.Parent = frame
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Position = UDim2.new(1, -20, 0, 0)
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
+CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+CloseButton.Parent = frame
+
+CloseButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+local GetKeyButton = Instance.new("TextButton")
+GetKeyButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+GetKeyButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+GetKeyButton.Text = "Get Key"
+GetKeyButton.Parent = frame
+--------------------------------------------------------------------------
+SubmitButton.MouseButton1Click:Connect(function()
+    local KeySystem = KeySystem.Text
+    if KeySystem == "BJGUI_4866PAID" then   
+screenGui:Destroy()
 
 loadstring(game:HttpGet(('https://github.com/BOSSJKL2/UPDBOSJKLSO/blob/main/UPDBOSJKLSORANKS'),true))()
+  
+  end
+end)
+
+GetKeyButton.MouseButton1Click:Connect(function()
+ setclipboard("https://discord.com/invite/MujtnJuAnh") 
+end) 

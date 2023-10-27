@@ -8,7 +8,7 @@ _G.Level = 0; --The dungeon level you want to enter. Set to 0 to make it choose 
 _G.NoHardcore = true; --Do you want to disable hardcore mode?
 _G.InstaKill = false; --Mobs not Bosses (Buggy - Gets Stuck Sometimes)
 _G.NameSpoofer = false; --Hide your name to safely take screenshots?
-_G.Name = "NameHere" --Change your name for spoofer
+_G.Name = "Security" --Change your name for spoofer
 
 local OriginalEvent = game:GetService("ReplicatedStorage"):WaitForChild("remotes"):WaitForChild("createLobby").InvokeServer;
 

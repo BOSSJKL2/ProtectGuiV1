@@ -1,109 +1,136 @@
--- Made BY Mr.Alegator
+-- Gui to Lua
+-- Version: 3.2
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+-- Instances:
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 200, 0, 100)
-frame.Position = UDim2.new(0.5, -100, 0.5, -50)
-frame.BackgroundColor3 = Color3.new(1, 1, 1)
-frame.Parent = screenGui
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local KeyBox = Instance.new("TextBox")
+local GetKey = Instance.new("TextButton")
+local Enter = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, 0, 0, 20)
-title.Position = UDim2.new(0, 0, 0, -20)
-title.Text = "KeySystem"
-title.TextColor3 = Color3.new(1, 1, 1)
-title.BackgroundColor3 = Color3.new(0, 0, 0)
-title.Parent = frame
+--Properties:
 
-local dragging
-local dragInput
-local dragStart
-local startPos
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local function update(input)
-    local delta = input.Position - dragStart
-    frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(161, 214, 255)
+Frame.Position = UDim2.new(0.370578766, 0, 0.300341278, 0)
+Frame.Size = UDim2.new(0, 487, 0, 208)
+
+KeyBox.Name = "KeyBox"
+KeyBox.Parent = Frame
+KeyBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KeyBox.Position = UDim2.new(0.215605766, 0, 0.211538464, 0)
+KeyBox.Size = UDim2.new(0, 277, 0, 50)
+KeyBox.Font = Enum.Font.SourceSans
+KeyBox.Text = ""
+KeyBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+KeyBox.TextSize = 14.000
+
+GetKey.Name = "GetKey"
+GetKey.Parent = Frame
+GetKey.BackgroundColor3 = Color3.fromRGB(255, 112, 112)
+GetKey.Position = UDim2.new(0.264887065, 0, 0.528846145, 0)
+GetKey.Size = UDim2.new(0, 228, 0, 33)
+GetKey.Font = Enum.Font.LuckiestGuy
+GetKey.LineHeight = 0.750
+GetKey.Text = "GET KEY"
+GetKey.TextColor3 = Color3.fromRGB(0, 0, 0)
+GetKey.TextSize = 22.000
+GetKey.MouseButton1Click:Connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Copied!"; Text = "PASTE IT ON SEARCH !"; Icon = "rbxassetid://9327507243"; Duration = 10 })
+	wait(0.7)
+	setclipboard("https://discord.com/invite/4yVX684mpM")
+end)
+
+Enter.Name = "Enter"
+Enter.Parent = Frame
+Enter.BackgroundColor3 = Color3.fromRGB(78, 197, 72)
+Enter.Position = UDim2.new(0.264887065, 0, 0.745192349, 0)
+Enter.Size = UDim2.new(0, 228, 0, 34)
+Enter.Font = Enum.Font.LuckiestGuy
+Enter.LineHeight = 0.750
+Enter.Text = "ENTER"
+Enter.TextColor3 = Color3.fromRGB(0, 0, 0)
+Enter.TextSize = 19.000
+Enter.MouseButton1Click:Connect(function()
+if KeyBox.Text == "bca" then
+		Frame.Visible = false
+		wait(0.5)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
+	end
+end)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.293634474, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.Bangers
+TextLabel.Text = "b00sjklo Gui Security"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 22.000
+
+-- Scripts:
+
+local function LLCZL_fake_script() -- Frame.Smooth GUI Dragging 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (8); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
 end
-
-title.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
-
-title.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
-end)
-
-title.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = false
-        dragInput = nil
-    end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        update(input)
-    end
-end)
-
-local KeySystem = Instance.new("TextBox")
-KeySystem.Size = UDim2.new(1, 0, 0.5, 0)
-KeySystem.Position = UDim2.new(0, 0, 0, 0)
-KeySystem.Text = "Enter the Key"
-KeySystem.TextColor3 = Color3.new(0, 0, 0)
-KeySystem.BackgroundTransparency = 0.5
-KeySystem.BackgroundColor3 = Color3.new(1, 1, 1)
-KeySystem.TextWrapped = true
-KeySystem.Parent = frame
-
-local SubmitButton = Instance.new("TextButton")
-SubmitButton.Size = UDim2.new(0.5, 0, 0.5, 0)
-SubmitButton.Position = UDim2.new(0, 0, 0.5, 0)
-SubmitButton.Text = "Submit"
-SubmitButton.Parent = frame
-
-local CloseButton = Instance.new("TextButton")
-CloseButton.Size = UDim2.new(0, 20, 0, 20)
-CloseButton.Position = UDim2.new(1, -20, 0, 0)
-CloseButton.Text = "X"
-CloseButton.TextColor3 = Color3.new(1, 1, 1)
-CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
-CloseButton.Parent = frame
-
-CloseButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
-end)
-
-local GetKeyButton = Instance.new("TextButton")
-GetKeyButton.Size = UDim2.new(0.5, 0, 0.5, 0)
-GetKeyButton.Position = UDim2.new(0.5, 0, 0.5, 0)
-GetKeyButton.Text = "Get Key"
-GetKeyButton.Parent = frame
---------------------------------------------------------------------------
-SubmitButton.MouseButton1Click:Connect(function()
-    local KeySystem = KeySystem.Text
-    if KeySystem == "BJGUI_4866PAID" then   
-screenGui:Destroy()
-
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS'),true))()
-  
-  end
-end)
-
-GetKeyButton.MouseButton1Click:Connect(function()
- setclipboard("https://discord.com/invite/MujtnJuAnh") 
-end) 
+coroutine.wrap(LLCZL_fake_script)()

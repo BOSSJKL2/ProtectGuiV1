@@ -61,6 +61,13 @@ if KeyBox.Text == "WHOLEAK" then
 		Frame.Visible = false
 		wait(0.5)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
+wait(0.1)
+
+Enter.MouseButton1Click:Connect(function()
+if KeyBox.Text == "BADLEAK" then
+		Frame.Visible = false
+		wait(0.5)
+		loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/EPIC-ONLY/main/EPIC%20ONLy"))()"))()
 	end
 end)
 

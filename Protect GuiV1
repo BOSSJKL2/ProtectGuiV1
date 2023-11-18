@@ -57,7 +57,7 @@ Enter.Text = "ENTER"
 Enter.TextColor3 = Color3.fromRGB(0, 0, 0)
 Enter.TextSize = 19.000
 Enter.MouseButton1Click:Connect(function()
-if KeyBox.Text == "BJGUI2.62" then
+if KeyBox.Text == "MUMMONEYSCRIPT" then
 		Frame.Visible = false
 		wait(0.5)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()

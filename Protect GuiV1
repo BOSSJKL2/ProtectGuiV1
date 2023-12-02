@@ -62,6 +62,10 @@ if KeyBox.Text == "MUMMONEYSCRIPT" then
 		Frame.Visible = false
 		wait(0.1)
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/RRG6wkdz"))()
 	end

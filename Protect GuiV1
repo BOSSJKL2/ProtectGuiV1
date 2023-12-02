@@ -59,9 +59,15 @@ Enter.TextSize = 19.000
 Enter.MouseButton1Click:Connect(function()
 if KeyBox.Text == "MUMMONEYSCRIPT" then
 		Frame.Visible = false
-		wait(0.5)
+		wait(0.1)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
 	end
+wait(1)
+if KeyBox.Text == "K00P" then
+		Frame.Visible = false
+		wait(0.1)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
+end
 end)
 
 TextLabel.Parent = Frame

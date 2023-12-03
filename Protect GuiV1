@@ -53,11 +53,14 @@ Enter.Text = "ENTER"
 Enter.TextColor3 = Color3.fromRGB(0, 0, 0)
 Enter.TextSize = 19.000
 Enter.MouseButton1Click:Connect(function()
-if KeyBox.Text == "MUMMONEYSCRIPT" then
-wait()
 if GetKey.Text == "User - Tubers93HKRB" then
+		Frame.Visible = false
 		wait()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/BossJKLO-SECURITY-/main/BossSCURITY"))()
+end
+wait(0.01)
+if KeyBox.Text == "MUMMONEYSCRIPT" then
+		Frame.Visible = false
 		wait()
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
@@ -66,21 +69,12 @@ if GetKey.Text == "User - Tubers93HKRB" then
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/RRG6wkdz"))()
-Frame.Visible = false
 	end
 wait()
 if KeyBox.Text == "K00P" then
-if GetKey.Text == "User - Tubers93HKRB" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/BossJKLO-SECURITY-/main/BossSCURITY"))()
-		wait()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
-Frame.Visible = false
-end
-wait()
-if GetKey.Text == "User - Tubers93HKRB" then
 		Frame.Visible = false
 		wait()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/BossJKLO-SECURITY-/main/BossSCURITY"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
 end)
 

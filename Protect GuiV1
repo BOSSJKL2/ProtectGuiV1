@@ -38,7 +38,7 @@ GetKey.Position = UDim2.new(0.264887065, 0, 0.528846145, 0)
 GetKey.Size = UDim2.new(0, 228, 0, 33)
 GetKey.Font = Enum.Font.LuckiestGuy
 GetKey.LineHeight = 0.750
-GetKey.Text = "Username - "..game.Players.LocalPlayer.Name
+GetKey.Text = "User - "..game.Players.LocalPlayer.Name
 GetKey.TextColor3 = Color3.fromRGB(0, 0, 0)
 GetKey.TextSize = 22.000
 
@@ -71,7 +71,7 @@ if KeyBox.Text == "K00P" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
 wait()
-if KeyBox.Text == "SECRET8" then
+if GetKey.Text == "User - Tubers93HKRB" then
 		Frame.Visible = false
 		wait()
 		loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()

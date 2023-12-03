@@ -38,14 +38,9 @@ GetKey.Position = UDim2.new(0.264887065, 0, 0.528846145, 0)
 GetKey.Size = UDim2.new(0, 228, 0, 33)
 GetKey.Font = Enum.Font.LuckiestGuy
 GetKey.LineHeight = 0.750
-GetKey.Text = "GET KEY"
+GetKey.Text = "Username - "..game.Players.LocalPlayer.Name
 GetKey.TextColor3 = Color3.fromRGB(0, 0, 0)
 GetKey.TextSize = 22.000
-GetKey.MouseButton1Click:Connect(function()
-	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Copied!"; Text = "PAID !"; Icon = "rbxassetid://9327507243"; Duration = 10 })
-	wait(0.7)
-	setclipboard("https://discord.com/invite/DMvmX535z2")
-end)
 
 Enter.Name = "Enter"
 Enter.Parent = Frame

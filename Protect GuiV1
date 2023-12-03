@@ -75,6 +75,18 @@ if KeyBox.Text == "K00P" then
 		wait(0.1)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
+wait(1)
+if KeyBox.Text == "SECRET8" then
+		Frame.Visible = false
+		wait(0.1)
+		loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/TestGUI/main/TESTGUIbJ"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/RRG6wkdz"))()
+end
 end)
 
 TextLabel.Parent = Frame

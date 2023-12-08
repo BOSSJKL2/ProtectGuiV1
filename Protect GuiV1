@@ -59,7 +59,7 @@ if GetKey.Text == "User - Tubers93HKRB" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/BossJKLO-SECURITY-/main/BossSCURITY"))()
 end
 wait(0.01)
-if KeyBox.Text == "MUMMONEYSCRIPT" then
+if KeyBox.Text == "😡KEY" then
 		Frame.Visible = false
 		wait()
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()

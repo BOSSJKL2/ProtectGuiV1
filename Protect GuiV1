@@ -76,6 +76,12 @@ if KeyBox.Text == "K00P" then
 		wait()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
+wait()
+if KeyBox.Text == "inf" then
+		Frame.Visible = false
+		wait()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end
 end)
 
 TextLabel.Parent = Frame

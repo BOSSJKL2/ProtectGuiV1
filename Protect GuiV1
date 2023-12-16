@@ -77,10 +77,10 @@ if KeyBox.Text == "K00P" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
 wait()
-if KeyBox.Text == "inf" then
+if KeyBox.Text == "2.66OLD" then
 		Frame.Visible = false
 		wait()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+		loadstring(game:HttpGet("loadstring(game:HttpGet("https://github.com/BOSSJKL2/UPDBOSJKLSO/blob/d1f95d1313277ec8477c53c24c07b970a0ca5e13/UPDBOSJKLSORANKS"))()"))()
 end
 end)
 

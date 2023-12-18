@@ -67,7 +67,7 @@ if KeyBox.Text == "BJGUI😡48" then
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/dS6nMuAJ"))()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/UPDBOSJKLSO/main/UPDBOSJKLSORANKS"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/-/main/B00sjkidd%20gui%20new"))()
                 loadstring(game:HttpGet("https://pastebin.com/raw/RRG6wkdz"))()
 	end
 wait()

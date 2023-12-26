@@ -76,6 +76,12 @@ if KeyBox.Text == "K00P" then
 		wait()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/Skid/main/S"))()
 end
+wait()
+if KeyBox.Text == "GHOST123" then
+		Frame.Visible = false
+		wait()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BOSSJKL2/ghost-gui/main/gh0tshttps%20gui"))()
+end
 end)
 
 TextLabel.Parent = Frame
